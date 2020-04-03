@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import time
+from progressbar import printProgressBar
+
 class Credentials:
 
     def __init__(self, user="", username="", password=""):
@@ -8,7 +11,8 @@ class Credentials:
         self.password = password
 
     def validate_credentials(self):
-        print("Request the credentials.")
+
+        print("\nRequest the credentials.")
         # if you don't have the credentials, create some executation for this
         if not self.user and not self.username and not self.password:
             # you need have the credentials
@@ -24,6 +28,8 @@ class Credentials:
             print("Username and password has created!")
         else:
             print("Username and password already exists!")
+        
+
 
     def get_user(self):
         # try to get something
@@ -63,7 +69,8 @@ class Credentials:
             # if don't, try again
             print("Please, inform the password!")
             self.get_password()
+        """
+            need to be a hash password
+        """
         return self.password
-        
-credentials = Credentials()
-credentials.validate_credentials()
+    

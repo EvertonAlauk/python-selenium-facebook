@@ -14,12 +14,12 @@ class Facebook:
     """ The init """
     # you need have the chromedriver on your project and set the path like that
     self.browser = browser
-    print("Inicialiting the Facebook!")
+    print("\nInicialiting the Facebook!")
 
   def log_in(self, credentials):
     """ The login """
     try:
-        print("Login-in.")
+        print("\nDoing Log-in.")
         # open the browser on the login page
         print("Opening browser...")
         self.browser.get('https://www.facebook.com/')
@@ -54,7 +54,7 @@ class Facebook:
   def create_post(self, credentials):
     """ Post a text on Instagram """
     try:
-      print("Creating a post...")
+      print("\nCreating a post...")
       self.browser.get('https://www.facebook.com/{}'.format(credentials.user))
       print("Acessing the user profile...")
       # click in the post field
@@ -67,10 +67,11 @@ class Facebook:
       print("Writing on textarea...")
       time.sleep(1)
       # posting the content
+      print("Posting...")
       post_submit = self.browser.find_element_by_class_name('_1mf7')
       post_submit.click()
-      print("Posting...")
       time.sleep(3)
+      print("Posted!")
       return True
     # if dont have a window
     except NoSuchWindowException as err:

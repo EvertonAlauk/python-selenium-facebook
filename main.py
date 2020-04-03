@@ -18,6 +18,7 @@ def main():
   """
   # get the credentials
   credentials = Credentials()
+  credentials.validate_credentials()
   # to get online on facebook
   facebook = Facebook(browser)
   facebook.log_in(credentials)
@@ -32,7 +33,7 @@ def actions(facebook, credentials):
   Any other option the system will done.
   Anothers options are in development.
   """
-  action_text = "Do you want to do something?\n1) Create a Post \n2) Exit \nOption: "
+  action_text = "\nDo you want to do something?\n\n[1] Create a Post \n[2] Exit \n\nOption: "
   action = int(input(action_text))
   while action <= 0:
     action = int(input(action_text))
@@ -40,7 +41,7 @@ def actions(facebook, credentials):
     facebook.create_post(credentials)
     actions(facebook, credentials)
   else:
-    print("Thank you. Come back!")
+    print("\nThank you. Come back!\n")
     browser.close()
 
 main()
